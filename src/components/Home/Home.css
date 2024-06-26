@@ -1,0 +1,41 @@
+.home-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #f0f0f3;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 1;
+    color: #262626;
+    text-align: center;
+  }
+  
+  .content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .content button {
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    background: #3b82f6;
+    color: white;
+    font-size: 18px;
+    box-shadow: 8px 8px 16px #2c6bc1, -8px -8px 16px #4b9afc;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease, background 0.3s ease;
+  }
+  
+  .content button:hover {
+    box-shadow: 4px 4px 8px #2c6bc1, -4px -4px 8px #4b9afc;
+    background: #3366cc;
+  }
+  
