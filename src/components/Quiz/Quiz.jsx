@@ -11,6 +11,8 @@ const Quiz = () => {
   const [showScore, setShowScore] = useState(false);
   const [lock, setLock] = useState(false);
   const [result, setResult] = useState(false);
+  const [totalCost, setTotalCost] = useState(0);
+  const [costData, setCostData] = useState([]);
 
   const Option1 = useRef(null);
   const Option2 = useRef(null);
@@ -24,6 +26,8 @@ const Quiz = () => {
       if (data[index].answer === ans) {
         e.target.classList.add('correct');
         setScore(prev => prev + 1);
+        setTotalCost(prev => prev + data[index].cost);
+        setCostData(prev => [...prev, { question: data[index].question, cost: data[index].cost, referenceCost: data[index].referenceCost }]);
       } else {
         e.target.classList.add('wrong');
         option_array[data[index].answer].current.classList.add('correct');
@@ -56,6 +60,8 @@ const Quiz = () => {
     setShowScore(false);
     setLock(false);
     setResult(false);
+    setTotalCost(0);
+    setCostData([]);
 
     option_array.forEach(option => {
       option.current.classList.remove('wrong');
@@ -68,7 +74,7 @@ const Quiz = () => {
   return (
     <div className='container'>
       {showScore ? (
-        <Result score={score} totalQuestions={data.length} restartQuiz={restartQuiz} />
+        <Result score={score} totalQuestions={data.length} restartQuiz={restartQuiz} totalCost={totalCost} costData={costData} />
       ) : (
         <>
           <div className='header'>

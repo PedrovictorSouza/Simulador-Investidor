@@ -151,6 +151,16 @@
     text-shadow: 1px 1px 2px #d1d9e6, -1px -1px 2px #ffffff;
   }
   
+  .chart-container {
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: #f0f0f3;
+    border-radius: 20px;
+    box-shadow: 8px 8px 16px #d1d9e6, -8px -8px 16px #ffffff;
+  }
+  
   .result-container p {
     font-size: 20px;
     color: #707070;
