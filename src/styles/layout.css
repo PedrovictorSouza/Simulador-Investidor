@@ -1,0 +1,80 @@
+@import './variables.css';
+
+.container {
+  height: 70vh;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 40%;
+  margin-right: 50px;
+  background: var(--primary-bg);
+  color: var(--primary-color);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  border-radius: var(--border-radius);
+  padding: var(--padding);
+  box-shadow: var(--box-shadow), var(--inner-shadow);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chart-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+  background: var(--primary-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.chart-container canvas {
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .container {
+    width: 80vw;
+    margin-left: 10vw; /* Centralizando o container */
+    margin-right: 10vw;
+    padding: 20px; /* Ajustando o padding para telas menores */
+    gap: none;
+  }
+
+  .container ul {
+    margin-top: 20px;
+  }
+
+  .chart-container {
+    padding: 10px;
+  }
+
+  button {
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+  }
+
+  .restart-button {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .index {
+    font-size: var(--font-size-small);
+    padding: 10px;
+  }
+
+  .result-container h2 {
+    font-size: 24px;
+  }
+
+  .result-container p {
+    font-size: var(--font-size-small);
+  }
+}

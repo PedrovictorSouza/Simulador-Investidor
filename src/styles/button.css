@@ -1,0 +1,88 @@
+@import './variables.css';
+
+button {
+  width: 150px;
+  height: 50px;
+  margin-top: 20px;
+  border: none;
+  border-radius: 25px;
+  background: var(--accent-color);
+  color: white;
+  font-size: 18px;
+  box-shadow: var(--box-shadow);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+}
+
+button:hover {
+  box-shadow: 4px 4px 8px #2c6bc1, -4px -8px 16px #4b9afc;
+  background: var(--accent-hover);
+}
+
+.restart-button {
+  width: 50px;
+  height: 50px;
+  background-color: var(--danger-color);
+  box-shadow: var(--box-shadow);
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+  cursor: pointer;
+  font-size: 20pt;
+  border: none;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+}
+
+.restart-button:hover {
+  background-color: var(--danger-hover);
+}
+
+
+@media (max-width: 768px) {
+  .container {
+    width: 80vw;
+    padding: 20px;
+    gap: 0;
+    height: 80vh;
+  }
+
+  .chart-container {
+    padding: 10px;
+  }
+
+
+.index {
+  font-size: 10pt;
+}
+
+  button {
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+    padding: 10px;
+    font-size: 18pt;
+  }
+
+  .restart-button {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .index {
+    font-size: 10pt;
+    padding: 10px;
+  }
+
+  .result-container h2 {
+    font-size: 24px;
+  }
+
+  .result-container p {
+    font-size: var(--font-size-small);
+  }
+}

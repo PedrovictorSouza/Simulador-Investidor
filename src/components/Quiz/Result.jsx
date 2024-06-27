@@ -1,18 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Quiz.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import CostChart from './CostChart';
-
+import '../../styles/quiz.css';
 const Result = ({ score, totalQuestions, restartQuiz, totalCost, costData }) => {
   return (
-    <div className='result-container'>
-      <h2>Resultado do Quiz</h2>
-      <p>Você acertou {score} de {totalQuestions} perguntas!</p>
-      <p>O custo operacional total é: R$ {totalCost ? totalCost.toFixed(2) : '0.00'}</p>
-      <CostChart costData={costData} />
-      <button className='restart-button' onClick={restartQuiz}>
+    <div className='result-container fade-in' style={{ animationDelay: '0s' }}>
+      <h2 className='fade-in' style={{ animationDelay: '0.2s' }}>Resultado do Quiz</h2>
+      <p className='fade-in' style={{ animationDelay: '0.4s' }}>Você acertou {score} de {totalQuestions} perguntas!</p>
+      <p className='fade-in' style={{ animationDelay: '0.6s' }}>O custo operacional total é: <strong>R$ {totalCost ? totalCost.toFixed(2) : '0.00'}</strong></p>
+      <div className="chart-container fade-in" style={{ animationDelay: '0.8s' }}>
+        <CostChart costData={costData} />
+      </div>
+      <button className='restart-button fade-in' style={{ animationDelay: '1s' }} onClick={restartQuiz}>
         <FontAwesomeIcon icon={faRedo} />
       </button>
     </div>

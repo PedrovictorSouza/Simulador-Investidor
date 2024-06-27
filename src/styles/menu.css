@@ -1,0 +1,92 @@
+/* menu.css */
+.menu {
+  position: fixed;
+  top: 0;
+  right: -250px; /* Inicialmente fora da tela */
+  width: 250px;
+  height: 100%;
+  border: 1px solid rgb(217, 239, 249);
+  background: rgb(195 202 212 / 70%); /* Fundo semi-transparente */
+  box-shadow: 
+    8px 8px 16px #e6f2f9,  /* Troca para sombra clara */
+    -8px -8px 16px rgba(0, 0, 0, 0.056), /* Troca para sombra escura */
+    inset 4px 4px 8px #eef6f9,  /* Troca para sombra clara */
+    inset -4px -4px 8px rgba(0, 0, 0, 0.1); /* Troca para sombra escura */
+  backdrop-filter: blur(10px); /* Desfoque para o efeito de vidro */
+  transition: right 0.3s ease, opacity 3s ease;
+  opacity: 0;
+  z-index: 1000;
+  border-radius: 10px; /* Bordas arredondadas para o efeito de neomorfismo */
+  outline: 1px solid rgba(255, 255, 255, 0.5); /* Contorno branco transparente */
+}
+
+.menu.open {
+  right: 0; /* Menu visível */
+  opacity: 1; /* Menu totalmente visível */
+}
+
+.menu nav ul {
+  list-style: none;
+  padding: 20px;
+}
+
+.menu nav ul li {
+  margin: 20px 0;
+}
+
+.menu nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+.menu-button {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: #909bab;
+  color: white;
+  border: none;
+  border-radius: 50%; /* Tornando o botão redondo */
+  width: 50px;
+  height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1001;
+  box-shadow: 
+    2px 2px 4px #e6f2f9,  /* Troca para sombra clara */
+    -2px -2px 4px rgba(0, 0, 0, 0.056); /* Troca para sombra escura */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.menu-button.hidden {
+  display: none; /* Ocultar o botão de menu quando o menu estiver aberto */
+}
+
+.menu-button:hover {
+  background: #3366cc;
+}
+
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  margin: 0px;
+  color: white;
+  background: #d14e4e;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%; /* Tornando o botão de fechar redondo */
+  box-shadow: 
+    4px 4px 8px #f47b7b,  /* Troca para sombra clara */
+    -4px -4px 8px rgba(238, 167, 167, 0.056); /* Troca para sombra escura */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}

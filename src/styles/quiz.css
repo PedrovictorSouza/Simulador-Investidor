@@ -1,0 +1,71 @@
+@import './variables.css';
+@import './layout.css';
+@import './button.css';
+@import './animations.css'; /* Importando o arquivo de animações */
+
+.container ul {
+  list-style: none;
+  padding: 0;
+}
+
+.container ul li {
+  display: flex;
+  align-items: center;
+  height: 7vh;
+  padding-left: 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 10px;
+  font-size: 12pt;
+  background: var(--primary-bg);
+  box-shadow: var(--box-shadow);
+  background-image: linear-gradient(to bottom left, rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0) 70%), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/udomlgAAAAASUVORK5CYII=');
+  background-size: cover;
+  transition: box-shadow 0.3s ease, background 0.3s ease;
+  animation: fadeIn 1s ease-in-out; /* Aplicando a animação */
+}
+
+.container ul li:hover {
+  background: linear-gradient(to bottom right, rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0.3));
+  box-shadow: 4px 4px 8px #d1d9e6, -4px -8px 16px #ffffff, 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.container ul li.correct {
+  background: #dffff2;
+  border-color: #00d397;
+}
+
+.container ul li.wrong {
+  background: #ffebeb;
+  border-color: #ff4a4a;
+}
+
+.index {
+  margin-top: 20px;
+  font-size: 10pt;
+  height: 30px;
+  font-weight: 600;
+  color: grey;
+  text-shadow: 1px 1px 2px #d1d9e6, -1px -1px 2px #ffffff;
+  box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -8px 16px #ffffff;
+  padding: 10px 20px;
+  border-radius: var(--border-radius);
+  background: var(--primary-bg);
+  animation: fadeIn 1s ease-in-out; /* Aplicando a animação */
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease-in-out; /* Aplicando a animação */
+}
+
+.progress {
+  height: 100%;
+  background: #59ce32;
+  border-radius: 5px;
+  animation: fadeIn 1s ease-in-out; 
+  transition: width 0.5s ease;
+}

@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { data } from '../../assets/data';
-import './Quiz.css';
+import '../../styles/quiz.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import Result from './Result';
