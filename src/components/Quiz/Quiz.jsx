@@ -1,9 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { data } from '../../assets/data';
 import '../../styles/quiz.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRedo } from '@fortawesome/free-solid-svg-icons';
 import Result from './Result';
+import Onboarding from './Onboarding'; // Import the Onboarding component
+import Header from './Header'; // Import the Header component
+import Question from './Question'; // Import the Question component
+import ProgressBar from './ProgressBar'; // Import the ProgressBar component
 
 const Quiz = () => {
   const [index, setIndex] = useState(0);
@@ -13,6 +15,8 @@ const Quiz = () => {
   const [result, setResult] = useState(false);
   const [totalCost, setTotalCost] = useState(0);
   const [costData, setCostData] = useState([]);
+  const [run, setRun] = useState(false); // State to control the onboarding
+  const [ready, setReady] = useState(false); // State to control DOM readiness
 
   const Option1 = useRef(null);
   const Option2 = useRef(null);
@@ -20,6 +24,63 @@ const Quiz = () => {
   const Option4 = useRef(null);
 
   const option_array = [Option1, Option2, Option3, Option4];
+
+  const steps = useMemo(() => [
+    {
+      target: '.question-container',
+      content: 'This is where the questions will be displayed.',
+    },
+    {
+      target: '.options-container',
+      content: 'These are the possible answers for the current question. Only one of these answers is correct.',
+    },
+    {
+      target: '.next-button',
+      content: 'Click this button to proceed to the next question.',
+    },
+    {
+      target: '.header .restart-button',
+      content: 'Click this button to restart the quiz.',
+    },
+    {
+      target: '.progress-bar',
+      content: 'This shows your progress through the quiz.',
+    },
+  ], []);
+  
+
+  useEffect(() => {
+    console.log("Checking if all elements are present in the DOM");
+    let attempts = 0;
+    const maxAttempts = 50;
+    const intervalId = setInterval(() => {
+      const allElementsPresent = steps.every(step => {
+        const element = document.querySelector(step.target);
+        console.log(`Checking element: ${step.target}`, element);
+        return element;
+      });
+      if (allElementsPresent) {
+        setReady(true);
+        console.log("All elements are present, setting ready to true");
+        clearInterval(intervalId);
+      }
+      if (attempts >= maxAttempts) {
+        console.warn("Maximum attempts reached. Some elements might be missing.");
+        clearInterval(intervalId);
+      }
+      attempts++;
+    }, 100); // Verifica a cada 100ms
+
+    return () => clearInterval(intervalId);
+  }, [steps]);
+
+  useEffect(() => {
+    console.log("Ready state changed: ", ready);
+    if (ready) {
+      setRun(true);
+      console.log("All elements are ready, starting onboarding");
+    }
+  }, [ready]);
 
   const checkAns = (e, ans) => {
     if (lock === false) {
@@ -69,38 +130,32 @@ const Quiz = () => {
     });
   };
 
-  const progressPercentage = ((index + 1) / data.length) * 100;
-
   return (
     <div className='container'>
+      {ready && (
+        <Onboarding 
+          steps={steps} 
+          run={run} 
+          onTourEnd={() => {
+            console.log("Onboarding tour ended");
+            setRun(false);
+          }}
+        />
+      )}
       {showScore ? (
         <Result score={score} totalQuestions={data.length} restartQuiz={restartQuiz} totalCost={totalCost} costData={costData} />
       ) : (
         <>
-          <div className='header'>
-            <h1>SIMULADOR | Entrega de água</h1>
-            <button className='restart-button' onClick={restartQuiz}>
-              <FontAwesomeIcon icon={faRedo} />
-            </button>
-          </div>
+          <Header restartQuiz={restartQuiz} />
           <hr />
-          <div className='question-container'>
-            <h2>{index + 1}. {data[index].question}</h2>
-          </div>
-          <ul>
-            {data[index].options.map((option, i) => (
-              <li key={i} ref={option_array[i]} onClick={(e) => checkAns(e, i)}>
-                {option}
-              </li>
-            ))}
-          </ul>
-          <button onClick={next}>Next</button>
-          <div className='index'>
-            {index + 1} of {data.length} questions
-            <div className='progress-bar'>
-              <div className='progress' style={{ width: `${progressPercentage}%` }}></div>
-            </div>
-          </div>
+          <Question
+            question={data[index].question}
+            options={data[index].options}
+            checkAns={checkAns}
+            optionRefs={option_array}
+          />
+          <button className="next-button" onClick={next}>Next</button>
+          <ProgressBar index={index} total={data.length} />
         </>
       )}
     </div>

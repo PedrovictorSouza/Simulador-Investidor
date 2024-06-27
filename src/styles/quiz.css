@@ -20,6 +20,7 @@
   box-shadow: var(--box-shadow);
   background-image: linear-gradient(to bottom left, rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0) 70%), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/udomlgAAAAASUVORK5CYII=');
   background-size: cover;
+  background-blend-mode: overlay; /* Adiciona este blend mode */
   transition: box-shadow 0.3s ease, background 0.3s ease;
   animation: fadeIn 1s ease-in-out; /* Aplicando a animação */
 }
