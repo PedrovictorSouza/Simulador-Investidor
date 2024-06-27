@@ -154,7 +154,7 @@ const Quiz = () => {
             checkAns={checkAns}
             optionRefs={option_array}
           />
-          <button className="next-button" onClick={next}>Next</button>
+          <button className="next-button" onClick={next}>próxima</button>
           <ProgressBar index={index} total={data.length} />
         </>
       )}

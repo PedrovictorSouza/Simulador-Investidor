@@ -1,0 +1,66 @@
+.joyride-overlay-blocker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9998; /* Deve estar acima da maioria dos elementos */
+    pointer-events: all; /* Permite cliques no overlay */
+  }
+  
+  .joyride-tooltip__container {
+    z-index: 10001 !important; /* Certifique-se de que a tooltip do Joyride esteja acima do overlay */
+    max-width: 90%; /* Limitar a largura máxima em telas menores */
+    padding: 10px; /* Adicionar padding para melhor visualização */
+  }
+  
+  .joyride-tooltip__button {
+    z-index: 10002 !important; /* Certifique-se de que os botões do Joyride estejam acima do overlay */
+    padding: 8px 12px; /* Ajustar padding dos botões */
+  }
+  
+  .joyride-blocker-wrapper {
+    position: relative;
+    z-index: 10000;
+  }
+  
+  /* Media Queries para Responsividade */
+  @media (max-width: 768px) {
+    .joyride-tooltip__container.fixed-tooltip {
+      max-width: 80%; /* Ajustar largura máxima em telas menores */
+      position: fixed; /* Fixar a posição no mobile */
+      bottom: 10%; /* Ajustar a posição no fundo */
+      left: 50%; /* Centralizar horizontalmente */
+      transform: translateX(-50%); /* Centralizar horizontalmente */
+    }
+    
+    .joyride-tooltip__content {
+      font-size: 14px; /* Ajustar tamanho da fonte em telas menores */
+    }
+    
+    .joyride-tooltip__button {
+      font-size: 14px; /* Ajustar tamanho da fonte dos botões em telas menores */
+      padding: 6px 10px; /* Ajustar padding dos botões */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .joyride-tooltip__container.fixed-tooltip {
+      max-width: 95%; /* Ajustar largura máxima em telas muito pequenas */
+      position: fixed; /* Fixar a posição no mobile */
+      bottom: 5%; /* Ajustar a posição no fundo */
+      left: 50%; /* Centralizar horizontalmente */
+      transform: translateX(-50%); /* Centralizar horizontalmente */
+    }
+    
+    .joyride-tooltip__content {
+      font-size: 12px; /* Ajustar tamanho da fonte em telas muito pequenas */
+    }
+    
+    .joyride-tooltip__button {
+      font-size: 12px; /* Ajustar tamanho da fonte dos botões em telas muito pequenas */
+      padding: 4px 8px; /* Ajustar padding dos botões */
+    }
+  }
+  

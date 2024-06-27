@@ -1,0 +1,20 @@
+/* HomeLogo.css */
+.home-logo-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: home-fadeIn 1s ease forwards 0.5s;
+  }
+  
+  .home-logo {
+    width: 50px; /* Ajuste o tamanho conforme necessário */
+    margin-bottom: 20px;
+    background: linear-gradient(45deg, #f0f0f0, #c0c0c0, #f0f0f0);
+    background-size: 200% 200%;
+    -webkit-mask: url('../../assets/logos/logo-w.svg') no-repeat center;
+    mask: url('../../assets/logos/logo-w.svg') no-repeat center;
+    mask-size: contain;
+  }
+  

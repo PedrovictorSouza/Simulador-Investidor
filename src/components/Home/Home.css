@@ -1,4 +1,3 @@
-/* Home.css */
 .home-container {
   width: 100%;
   height: 100vh;
@@ -21,6 +20,13 @@
   padding: 20px;
   opacity: 0;
   animation: fadeIn 1s ease forwards;
+}
+
+small {
+  color: rgb(180, 171, 111);
+  margin-left: 10px;
+  font-size: 9pt;
+  font-style: italic;
 }
 
 .logo-container {
@@ -92,22 +98,77 @@
   animation: fadeIn 1s ease forwards 1s;
 }
 
-.content button {
+.input-container {
+  margin-bottom: 20px;
+}
+
+.input-text {
+  width: 80%;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 2px solid rgb(80, 136, 185);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background: #dee6f1;
+  border-radius: 10px;
+  padding-left: 10px;
+  font-weight: bold;
+  color: rgb(93, 91, 91);
+  box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+}
+
+.input-text-active {
+  border-bottom: 2px solid green;
+}
+
+.input-text:hover {
+  border-bottom-width: 5px;
+}
+
+.input-select {
+  width: 40%;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 2px solid rgb(80, 136, 185);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  margin-top: 20px;
+  color: rgb(141, 139, 139);
+  background: #dee6f1;
+  border-radius: 10px;
+  padding-left: 10px;
+  box-shadow: 5px 5px 10px #babecc, -5px -5px 10px #ffffff;
+}
+
+.input-select-active {
+  border-bottom: 3px solid green;
+}
+
+.input-select:hover {
+  border-bottom-width: 6px;
+}
+
+.main-button {
   width: 300px;
   height: 50px;
   border: none;
   border-radius: 25px;
-  background: #3b82f6;
-  color: white;
   font-size: 18px;
-  box-shadow: 4px 4px 8px #2c6bc1, -8px -8px 16px #4b9afc;
   cursor: pointer;
   transition: box-shadow 0.3s ease, background 0.3s ease;
   opacity: 0;
   animation: fadeIn 1s ease forwards 1.5s;
 }
 
-.content button:hover {
+.main-button.active {
+  background: #3b82f6;
+  color: white;
   box-shadow: 4px 4px 8px #2c6bc1, -4px -4px 8px #4b9afc;
-  background: #3366cc;
+}
+
+.main-button.inactive {
+  background: #ccc;
+  color: #666;
+  box-shadow: none;
+  cursor: not-allowed;
 }
