@@ -1,33 +1,32 @@
 /* HomeAnimations.css */
 @keyframes home-shine {
-    0% {
-      background-position: 200% 0;
-    }
-    100% {
-      background-position: -200% 0;
-    }
+  0% {
+    background-position: 200% 0;
   }
-  
-  @keyframes home-fadeIn {
-    to {
-      opacity: 1;
-    }
+  100% {
+    background-position: -200% 0;
   }
-  
-  @keyframes home-blinkCaret {
-    from, to {
-      border-color: transparent;
-    }
-    50% {
-      border-color: orange;
-    }
+}
+
+@keyframes home-fadeIn {
+  to {
+    opacity: 1;
   }
-  
-  .home-caret {
-    display: inline-block;
-    width: 0.15em;
-    background-color: orange;
-    margin-left: 2px;
-    animation: home-blinkCaret 0.75s step-end infinite;
+}
+
+@keyframes home-blinkCaret {
+  from, to {
+    border-color: transparent;
   }
-  
+  50% {
+    border-color: orange;
+  }
+}
+
+.home-caret {
+  display: inline-block;
+  width: 0.15em;
+  background-color: orange;
+  margin-left: 2px;
+  animation: home-blinkCaret 0.75s step-end infinite;
+}

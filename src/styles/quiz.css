@@ -25,12 +25,13 @@
   font-size: 12pt;
   background: var(--primary-bg);
   box-shadow: var(--box-shadow);
-  background-image: linear-gradient(to bottom left, rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0) 70%), url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/udomlgAAAAASUVORK5CYII=');
+  background-image: linear-gradient(to bottom left,#add8e680,#add8e600 70%), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/udomlgAAAAASUVORK5CYII=);
   background-size: cover;
-  background-blend-mode: overlay; /* Adiciona este blend mode */
-  transition: box-shadow 0.3s ease, background 0.3s ease;
-  animation: fadeIn 1s ease-in-out; /* Aplicando a animação */
+  background-blend-mode: overlay;
+  transition: box-shadow .3s ease, background .3s ease;
+  animation: fadeIn 1s ease-in-out;
 }
+
 
 .container ul li:hover {
   background: linear-gradient(to bottom right, rgba(173, 216, 230, 0.5), rgba(173, 216, 230, 0.3));

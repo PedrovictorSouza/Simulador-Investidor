@@ -6,17 +6,17 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  background: linear-gradient(120deg, rgba(195, 212, 237, 0.7) 25%, #f0f0f3 75%),
-              url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/EPJvK0AAAAASUVORK5CYII='); /* Gradiente e textura granulada */
+  background: linear-gradient(120deg, #c3d4edb3 25%, #f0f0f3 75%), url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/wcAAwAB/EPJvK0AAAAASUVORK5CYII=);
   background-size: cover;
 }
+
 
 .content {
   position: relative;
   z-index: 1;
   color: #262626;
-  text-align: left; /* Alinhamento à esquerda */
-  max-width: 600px; /* Limite de largura para o conteúdo */
+  text-align: left;
+  max-width: 600px;
   padding: 20px;
   opacity: 0;
   animation: fadeIn 1s ease forwards;
@@ -39,7 +39,7 @@ small {
 }
 
 .logo {
-  width: 50px; /* Ajuste o tamanho conforme necessário */
+  width: 50px;
   margin-bottom: 20px;
   background: linear-gradient(45deg, #f0f0f0, #c0c0c0, #f0f0f0);
   background-size: 200% 200%;
@@ -48,6 +48,7 @@ small {
   mask-size: contain;
 }
 
+/* Animações */
 @keyframes shine {
   0% {
     background-position: 200% 0;
@@ -85,15 +86,15 @@ small {
   margin-bottom: 20px;
   color: #787c98;
   font-weight: 600;
-  white-space: nowrap; /* Preserve line breaks */
+  white-space: nowrap;
   overflow: hidden;
-  border-right: none; /* Removed since caret is now separate */
+  border-right: none;
 }
 
 .content p {
   font-size: 12pt;
   margin-bottom: 20px;
-  color: rgba(139, 139, 139, 0.632); /* Cor para o parágrafo */
+  color: rgba(139, 139, 139, 0.632);
   opacity: 0;
   animation: fadeIn 1s ease forwards 1s;
 }
