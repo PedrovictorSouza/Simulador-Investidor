@@ -8,6 +8,13 @@
   padding: 0;
 }
 
+.next-button.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  background-color: #e0e0e0;
+  color: #e4e8ef;
+}
+
 .container ul li {
   display: flex;
   align-items: center;

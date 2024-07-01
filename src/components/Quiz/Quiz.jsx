@@ -17,6 +17,7 @@ const Quiz = () => {
   const [costData, setCostData] = useState([]);
   const [run, setRun] = useState(false); // State to control the onboarding
   const [ready, setReady] = useState(false); // State to control DOM readiness
+  const [optionSelected, setOptionSelected] = useState(false); // State to track if an option is selected
 
   const Option1 = useRef(null);
   const Option2 = useRef(null);
@@ -48,37 +49,30 @@ const Quiz = () => {
     },
   ], []);
   
-
   useEffect(() => {
-    console.log("Checking if all elements are present in the DOM");
     let attempts = 0;
     const maxAttempts = 50;
     const intervalId = setInterval(() => {
       const allElementsPresent = steps.every(step => {
         const element = document.querySelector(step.target);
-        console.log(`Checking element: ${step.target}`, element);
         return element;
       });
       if (allElementsPresent) {
         setReady(true);
-        console.log("All elements are present, setting ready to true");
         clearInterval(intervalId);
       }
       if (attempts >= maxAttempts) {
-        console.warn("Maximum attempts reached. Some elements might be missing.");
         clearInterval(intervalId);
       }
       attempts++;
-    }, 100); // Verifica a cada 100ms
+    }, 100);
 
     return () => clearInterval(intervalId);
   }, [steps]);
 
   useEffect(() => {
-    console.log("Ready state changed: ", ready);
     if (ready) {
       setRun(true);
-      console.log("All elements are ready, starting onboarding");
     }
   }, [ready]);
 
@@ -94,6 +88,7 @@ const Quiz = () => {
         option_array[data[index].answer].current.classList.add('correct');
       }
       setLock(true);
+      setOptionSelected(true); // Mark that an option has been selected
     }
   };
 
@@ -107,6 +102,7 @@ const Quiz = () => {
 
       setIndex(prev => prev + 1);
       setLock(false);
+      setOptionSelected(false); // Reset the option selected state for the next question
 
       option_array.forEach(option => {
         option.current.classList.remove('wrong');
@@ -123,6 +119,7 @@ const Quiz = () => {
     setResult(false);
     setTotalCost(0);
     setCostData([]);
+    setOptionSelected(false); // Reset the option selected state
 
     option_array.forEach(option => {
       option.current.classList.remove('wrong');
@@ -137,7 +134,6 @@ const Quiz = () => {
           steps={steps} 
           run={run} 
           onTourEnd={() => {
-            console.log("Onboarding tour ended");
             setRun(false);
           }}
         />
@@ -154,7 +150,7 @@ const Quiz = () => {
             checkAns={checkAns}
             optionRefs={option_array}
           />
-          <button className="next-button" onClick={next}>próxima</button>
+          <button className={`next-button ${!optionSelected ? 'disabled' : ''}`} onClick={next} disabled={!optionSelected}>próxima</button>
           <ProgressBar index={index} total={data.length} />
         </>
       )}
